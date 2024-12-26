@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/bestinspire/vue-raffle/badge)](https://www.codefactor.io/repository/github/bestinspire/vue-raffle)
+
 # Çekiliş Sistemi
 
 Bu proje, **Vue 3**, **TypeScript**, **Pinia**, **SASS** ve **Vite** kullanarak geliştirilmiş bir **çekiliş sistemidir**. Kullanıcılar katılımcı ekleyebilir, çekilişi başlatabilir, kazananları görüntüleyebilir ve belirli bir sayıda kazanan seçebilir. Ayrıca, katılımcılar listeden silinebilir ve kazananlar için konfeti efekti gösterilebilir.
