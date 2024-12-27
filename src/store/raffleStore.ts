@@ -1,5 +1,4 @@
 "use strict";
-//@ts-ignore
 import confetti from 'canvas-confetti'
 import { defineStore } from 'pinia'
 
