@@ -4,8 +4,8 @@
     <div class="list-container">
       <ul>
         <li v-for="(p, i) in store.participants" :key="i" class="participant-item">
-          <span class="participant-name">{{ p }}</span> <!-- İsimler solda hizalanacak -->
-          <button class="remove-btn" @click="removeParticipant(p)">Sil</button> <!-- Silme butonu sağda hizalanacak -->
+          <span class="participant-name">{{ p }}</span>
+          <button class="remove-btn" @click="removeParticipant(p)">Sil</button>
         </li>
       </ul>
     </div>
@@ -22,46 +22,80 @@ function removeParticipant(name: string) {
 </script>
 
 <style lang="sass" scoped>
-$primary-border-color: #ccc
-$primary-padding: 0.5rem
-$remove-btn-color: red
-$remove-btn-hover-color: darkred
+$primary-color: #f1f1f1
+$text-color: #f1f1f1
+$background-dark: #1e1e1e
+$background-light: #252525
+$remove-btn-color: #dc3545
+$remove-btn-hover-color: #c82333
+$border-radius: 8px
+$margin-large: 1rem
+$padding: 0.75rem
 
-=flex-align($justify: flex-start, $align: center)
+@mixin flex-align($justify: flex-start, $align: center)
   display: flex
   justify-content: $justify
   align-items: $align
 
 .participants-list
-  text-align: center
+  background-color: $background-dark
+  color: $text-color
+  padding: $margin-large
+  border-radius: $border-radius
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5)
+  max-width: 500px
+  margin: 0 auto
+
+  h2
+    text-align: center
+    color: $primary-color
+    margin-bottom: $margin-large
 
 .list-container
-  max-height: 150px
+  max-height: 250px
   overflow-y: auto
-  border: 1px solid $primary-border-color
-  padding: $primary-padding
-  margin-top: $primary-padding
+  border: 1px solid $background-light
+  border-radius: $border-radius
+  background-color: $background-light
+  padding: $padding
 
   ul
     list-style: none
     padding: 0
     margin: 0
 
+  &::-webkit-scrollbar
+    width: 8px
+  &::-webkit-scrollbar-thumb
+    background-color: $primary-color
+    border-radius: $border-radius
+  &::-webkit-scrollbar-track
+    background-color: $background-dark
+
 .participant-item
-  +flex-align(space-between)
-  margin: 4px 0
+  @include flex-align(space-between)
+  margin-bottom: 0.5rem
+  padding: $padding
+  border-radius: $border-radius
+  background-color: $background-dark
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5)
 
   .participant-name
     text-align: left
     flex: 1
+    color: $text-color
+    font-weight: bold
 
-.remove-btn
-  padding: $primary-padding
-  background-color: $remove-btn-color
-  color: white
-  border: none
-  cursor: pointer
+  .remove-btn
+    padding: $padding
+    background-color: $remove-btn-color
+    color: white
+    border: none
+    border-radius: $border-radius
+    cursor: pointer
+    transition: background-color 0.3s
 
-  &:hover
-    background-color: $remove-btn-hover-color
+    &:hover
+      background-color: $remove-btn-hover-color
+
 </style>
