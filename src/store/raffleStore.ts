@@ -59,16 +59,22 @@ export const useRaffleStore = defineStore('raffle', {
                     this.currentName = this.participants[randomIndex]
                 }
 
-                this.countdown--
+                    this.countdown--
 
                 if (this.countdown <= 0) {
-                    for (let i = 0; i < this.totalWinners; i++) {
+                    if (this.participants.length < this.totalWinners) {
+                        this.totalWinners = this.participants.length
+                    }
+
+                    const selectedIndexes = new Set<number>()
+                    while (this.winners.length < this.totalWinners) {
                         const randomIndex = Math.floor(Math.random() * this.participants.length)
-                        const winner = this.participants[randomIndex]
-                        if (!this.winners.includes(winner)) {
-                            this.winners.push(winner)
+                        if (!selectedIndexes.has(randomIndex)) {
+                            selectedIndexes.add(randomIndex)
+                            this.winners.push(this.participants[randomIndex])
                         }
                     }
+
                     confetti()
                     this.stopRaffle()
                 }
