@@ -1,4 +1,5 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/bestinspire/vue-raffle/badge)](https://www.codefactor.io/repository/github/bestinspire/vue-raffle)
+[![Vercel Deploy](https://deploy-badge.vercel.app/vercel/vue-raffle)](https://vercel.com/)
 
 # Çekiliş Sistemi
 
