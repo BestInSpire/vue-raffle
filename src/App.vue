@@ -4,12 +4,14 @@
 
     <div v-if="isParticipantsStep">
       <AddParticipant />
+      <br>
       <ParticipantsList />
       <button @click="goToRaffleSettings" class="ready-button">Katılımcı listesi hazır</button>
     </div>
 
     <div v-else>
       <WinnersSection />
+      <button @click="goToParticipantsStep" class="ready-button">Katılımcı listesine dön</button>
     </div>
   </div>
 </template>
@@ -25,23 +27,27 @@ const isParticipantsStep = ref(true)
 function goToRaffleSettings() {
   isParticipantsStep.value = false
 }
+function goToParticipantsStep() {
+  isParticipantsStep.value = true
+}
+
 </script>
 
 <style lang="sass" scoped>
-$max-width-container: 600px
+$max-width-container: 1000px
+$min-width-container: 450px
 $margin-auto: 0 auto
 $padding-container: 1rem
-$font-family-default: Arial, sans-serif
 $button-margin-top: 1rem
 $button-padding: 0.5rem 1rem
 $button-cursor: pointer
 
 .app-container
   max-width: $max-width-container
+  min-width: $min-width-container
   margin: $margin-auto
   padding: $padding-container
   text-align: center
-  font-family: $font-family-default
 
 .ready-button
   margin-top: $button-margin-top
